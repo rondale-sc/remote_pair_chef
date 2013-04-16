@@ -4,8 +4,11 @@ This repo contains all the recipes for installing a brand spanking new dev box. 
  
 These recipes are designed to be deployed to an instance (generally an AWS instance) running UBUNTU.   
 
-# Installation
+# Usage
 
 ```sh
+bundle install
+librarian-chef install
+
 knife solo bootstrap <HOST> --run-list 'role[remote_pair]'
 ```
