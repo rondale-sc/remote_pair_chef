@@ -1,0 +1,62 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (1.3.4)
+    chef_gem (0.1.0)
+    chef_handler (1.1.4)
+    dmg (1.1.0)
+    runit (1.1.2)
+      build-essential (>= 0.0.0)
+      yum (>= 0.0.0)
+    windows (1.8.8)
+      chef_handler (>= 0.0.0)
+    yum (2.2.0)
+
+GIT
+  remote: https://github.com/fnichol/chef-rvm
+  ref: master
+  sha: 08a06bc7c3c9fd0fb6b3a9b80f27bd74e109660c
+  specs:
+    rvm (0.9.1)
+      chef_gem (>= 0.0.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/git
+  ref: master
+  sha: 61e2e124e61893f908541e2af321595b803eec3e
+  specs:
+    git (2.4.1)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      runit (~> 1.0)
+      windows (>= 0.0.0)
+      yum (>= 0.0.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/sqlite
+  ref: master
+  sha: 2261eb0138b07627c8b6e121d8d46b58d422af4e
+  specs:
+    sqlite (1.0.0)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/tmux
+  ref: master
+  sha: a75fd534347e7331e8dbc3b708394064bf5865ba
+  specs:
+    tmux (1.2.2)
+
+GIT
+  remote: https://github.com/opscode-cookbooks/vim
+  ref: master
+  sha: 88e8d018267d2cd5cfa3260ce55a0025f52dae6f
+  specs:
+    vim (1.0.2)
+
+DEPENDENCIES
+  git (>= 0)
+  rvm (>= 0)
+  sqlite (>= 0)
+  tmux (>= 0)
+  vim (>= 0)
+

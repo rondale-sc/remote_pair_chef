@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+# cookbook 'chef-client'
+
+cookbook 'git',        :git => 'https://github.com/opscode-cookbooks/git'
+cookbook 'rvm',        :git => 'https://github.com/fnichol/chef-rvm'
+cookbook 'tmux',       :git => 'https://github.com/opscode-cookbooks/tmux'
+cookbook 'vim',        :git => 'https://github.com/opscode-cookbooks/vim'
+cookbook 'sqlite',     :git => 'https://github.com/opscode-cookbooks/sqlite'
