@@ -6,12 +6,17 @@ These recipes are designed to be deployed to an instance (generally an AWS insta
 
 # Usage
 
-Run from local box:
+To run the main task you should setup a few environment variables. You can either use `dotenv` or just manually load them into your environment.
+
+Here is a short list of the variables that you will most likely need:
+
+* AWS_ACCESS_KEY_ID
+* AWS_SECRET_ACCESS_KEY
+* IDENTITY_FILE - Specify your ssh private key path here (Usually, `~/.ssh/id_rsa.pem`).
+* SSH_KEY - Specify the name of your key-pair within AWS
 
 ```sh
 bundle install
 
-# get current AMI from: http://cloud-images.ubuntu.com/releases/precise/release/
-
-knife ec2 server create -r 'role[remote_pair]' --image ami-2efa9d47 --flavor m1.small --ssh-user ubuntu
+rake start RPC_HOST=<GITHUB USERNAME> RPC_PAIR=<GITHUB USERNAME>
 ```

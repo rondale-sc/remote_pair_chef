@@ -20,6 +20,7 @@ GEM
       yajl-ruby (~> 1.1)
     crack (0.3.2)
     diff-lcs (1.2.2)
+    dotenv (0.7.0)
     erubis (2.7.0)
     excon (0.20.1)
     fog (1.10.1)
@@ -98,6 +99,7 @@ PLATFORMS
 
 DEPENDENCIES
   chef (~> 11.4.0)
+  dotenv (~> 0.7.0)
   knife-ec2 (~> 0.6.4)
   knife-solo (~> 0.3.0.pre3)
   librarian-chef (~> 0.0.1)

@@ -29,11 +29,11 @@ describe AmiFinder do
     end
   end
 
-  context "#latest_ami" do
+  context ".latest_ami" do
     it "should return the latest ami for a given ubuntu release" do
       stub_cloud_image_request
 
-      expect(ami_finder.latest_ami).to eq('ami-2efa9d47')
+      expect(AmiFinder.latest_ami).to eq('ami-2efa9d47')
     end
   end
 
