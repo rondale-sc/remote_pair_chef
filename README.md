@@ -6,9 +6,9 @@ These recipes are designed to be deployed to an instance (generally an AWS insta
 
 # Usage
 
+Run from local box:
+
 ```sh
 bundle install
-librarian-chef install
-
-knife solo bootstrap <HOST> --run-list 'role[remote_pair]'
+knife solo bootstrap <user>@<host> --run-list 'role[remote_pair]'
 ```
