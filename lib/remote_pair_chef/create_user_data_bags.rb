@@ -1,9 +1,12 @@
+require 'net/http'
+require 'json'
+require 'uri'
+
 class CreateUserDataBags
-  require 'json'
 
   def initialize(opts)
     @users = opts.delete(:users)
-    @path = opts.delete(:path)
+    @path = opts.fetch(:path) { "data_bags/users" }
   end
 
   def create_users
@@ -28,8 +31,6 @@ class CreateUserDataBags
   end
 
   def get_keys(user)
-    require 'net/http'
-    require 'uri'
     uri = URI.parse("https://api.github.com/users/#{user}/keys")
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
