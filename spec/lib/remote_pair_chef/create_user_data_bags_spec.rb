@@ -15,7 +15,7 @@ describe CreateUserDataBags do
     cudb = CreateUserDataBags.new(users: [user], path: tmp_dir)
     cudb.create_users
 
-    expect(File.read("#{tmp_dir}/#{user}.json")).to eq(File.read("spec/fixtures/#{user}.json").chomp)
+    expect(File.read("#{tmp_dir}/#{CreateUserDataBags::PREFIX}_#{user}.json")).to eq(File.read("spec/fixtures/#{user}.json").chomp)
   end
 
   after(:all) do

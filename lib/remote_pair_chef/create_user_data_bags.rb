@@ -3,6 +3,7 @@ require 'json'
 require 'uri'
 
 class CreateUserDataBags
+  PREFIX = "remote_pair_chef_auto"
 
   def initialize(opts)
     @users = opts.delete(:users)
@@ -18,7 +19,7 @@ class CreateUserDataBags
   private
 
   def create_user_data_bag(user)
-    File.open("#{@path}/#{user}.json", "w") do |f|
+    File.open("#{@path}/#{PREFIX}_#{user}.json", "w") do |f|
       f.write(user_json(user))
     end
   end

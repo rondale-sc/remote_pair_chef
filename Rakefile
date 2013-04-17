@@ -6,7 +6,7 @@ require_relative 'lib/remote_pair_chef/create_user_data_bags.rb'
 # Remove user databags at the beginning of next session.
 # This ensures that users are never persisted to the next
 # pairing session.
-CLOBBER.add(File.expand_path("./data_bags/users/*.json"))
+CLOBBER.add(File.expand_path("./data_bags/users/#{CreateUserDataBags::PREFIX}*.json"))
 
 desc "Setup users from ENV"
 task :setup_users do
