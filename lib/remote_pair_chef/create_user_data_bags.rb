@@ -27,7 +27,7 @@ class CreateUserDataBags
   def user_json(user)
     { id: user,
       comment: user,
-      home: "home/#{user}",
+      home: "/home/#{user}",
       ssh_keys: get_keys(user) }.to_json
   end
 

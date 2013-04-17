@@ -4,12 +4,12 @@ require 'uri'
 class AmiFinder
   attr_accessor :suite, :region
 
-  def initialize(suite = 'precise', region = 'us-east-1')
-    self.suite, self.region = suite, region
+  def self.latest_ami
+    AmiFinder.new.latest[:ami]
   end
 
-  def latest_ami
-    latest[:ami]
+  def initialize(suite = 'precise', region = 'us-east-1')
+    self.suite, self.region = suite, region
   end
 
   def latest
