@@ -4,16 +4,11 @@ This repo contains all the recipes for installing a brand spanking new dev box. 
  
 These recipes are designed to be deployed to an instance (generally an AWS instance) running UBUNTU.   
 
-# Installation
+# Usage
 
 ```sh
-# Assumes that your instance has been created and that have root privaleges on that box.
-#
-# FROM NODE
-# chef
-curl -L https://www.opscode.com/chef/install.sh | sudo bash
-# clone repo
-git clone https://github.com/rondale-sc/remote_pair_chef.git && cd remote_pair_chef
-# run chef
-sudo chef-solo -j chef-solo.json -c solo.rb
+bundle install
+librarian-chef install
+
+knife solo bootstrap <HOST> --run-list 'role[remote_pair]'
 ```
