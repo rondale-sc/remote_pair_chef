@@ -1,0 +1,35 @@
+precise	server	release	20130411.1	ebs	amd64	ap-northeast-1	ami-fe6ceeff	aki-44992845		paravirtual
+precise	server	release	20130411.1	ebs	i386	ap-northeast-1	ami-fc6ceefd	aki-42992843		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	ap-northeast-1	ami-aa6ceeab	aki-44992845		paravirtual
+precise	server	release	20130411.1	instance-store	i386	ap-northeast-1	ami-106cee11	aki-42992843		paravirtual
+precise	server	release	20130411.1	ebs	amd64	ap-southeast-1	ami-64084736	aki-fe1354ac		paravirtual
+precise	server	release	20130411.1	ebs	i386	ap-southeast-1	ami-66084734	aki-f81354aa		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	ap-southeast-1	ami-60084732	aki-fe1354ac		paravirtual
+precise	server	release	20130411.1	instance-store	i386	ap-southeast-1	ami-8a0946d8	aki-f81354aa		paravirtual
+precise	server	release	20130411.1	ebs	amd64	ap-southeast-2	ami-04ea7a3e	aki-31990e0b		paravirtual
+precise	server	release	20130411.1	ebs	i386	ap-southeast-2	ami-06ea7a3c	aki-33990e09		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	ap-southeast-2	ami-00ea7a3a	aki-31990e0b		paravirtual
+precise	server	release	20130411.1	instance-store	i386	ap-southeast-2	ami-c4e979fe	aki-33990e09		paravirtual
+precise	server	release	20130411.1	ebs	amd64	eu-west-1	ami-c87b6fbc			hvm
+precise	server	release	20130411.1	ebs	amd64	eu-west-1	ami-ce7b6fba	aki-71665e05		paravirtual
+precise	server	release	20130411.1	ebs	i386	eu-west-1	ami-c27b6fb6	aki-75665e01		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	eu-west-1	ami-fc7a6e88	aki-71665e05		paravirtual
+precise	server	release	20130411.1	instance-store	i386	eu-west-1	ami-3a796d4e	aki-75665e01		paravirtual
+precise	server	release	20130411.1	ebs	amd64	sa-east-1	ami-a3da00be	aki-c48f51d9		paravirtual
+precise	server	release	20130411.1	ebs	i386	sa-east-1	ami-a1da00bc	aki-ca8f51d7		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	sa-east-1	ami-b5da00a8	aki-c48f51d9		paravirtual
+precise	server	release	20130411.1	instance-store	i386	sa-east-1	ami-2dda0030	aki-ca8f51d7		paravirtual
+precise	server	release	20130411.1	ebs	amd64	us-east-1	ami-d4f89fbd			hvm
+precise	server	release	20130411.1	ebs	amd64	us-east-1	ami-d0f89fb9	aki-88aa75e1		paravirtual
+precise	server	release	20130411.1	ebs	i386	us-east-1	ami-def89fb7	aki-b6aa75df		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	us-east-1	ami-2efa9d47	aki-88aa75e1		paravirtual
+precise	server	release	20130411.1	instance-store	i386	us-east-1	ami-9afe99f3	aki-b6aa75df		paravirtual
+precise	server	release	20130411.1	ebs	amd64	us-west-1	ami-fe002cbb	aki-f77e26b2		paravirtual
+precise	server	release	20130411.1	ebs	i386	us-west-1	ami-fc002cb9	aki-f57e26b0		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	us-west-1	ami-2c002c69	aki-f77e26b2		paravirtual
+precise	server	release	20130411.1	instance-store	i386	us-west-1	ami-8a072bcf	aki-f57e26b0		paravirtual
+precise	server	release	20130411.1	ebs	amd64	us-west-2	ami-72f96e42			hvm
+precise	server	release	20130411.1	ebs	amd64	us-west-2	ami-70f96e40	aki-fc37bacc		paravirtual
+precise	server	release	20130411.1	ebs	i386	us-west-2	ami-0ef96e3e	aki-fa37baca		paravirtual
+precise	server	release	20130411.1	instance-store	amd64	us-west-2	ami-eefa6dde	aki-fc37bacc		paravirtual
+precise	server	release	20130411.1	instance-store	i386	us-west-2	ami-54fa6d64	aki-fa37baca		paravirtual
