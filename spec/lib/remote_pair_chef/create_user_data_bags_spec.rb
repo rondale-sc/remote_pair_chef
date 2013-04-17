@@ -19,6 +19,6 @@ describe CreateUserDataBags do
   end
 
   after(:all) do
-    FileUtils.remote_entry tmp_dir
+    FileUtils.remove_entry tmp_dir
   end
 end
