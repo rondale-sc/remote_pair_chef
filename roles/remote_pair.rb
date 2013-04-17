@@ -5,6 +5,7 @@ run_list(
   "recipe[git::default]",
   "recipe[rvm::system]",
   "recipe[tmux::default]",
-  "recipe[sqlite::default]"
+  "recipe[sqlite::default]",
+  "recipe[user::default]"
 )
 
