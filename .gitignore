@@ -1,2 +1,4 @@
 tmp
-data_bags/users/*.json
+/data_bags/users/*.json
+/.env
+/nodes/*.json
