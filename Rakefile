@@ -23,12 +23,14 @@ task :bootstrap_ec2 do
   ssh_user      = ENV['SSH_USER']         || 'ubuntu'
   image_id      = ENV['IMAGE_ID']         || AmiFinder.latest_ami
   flavor        = ENV['FLAVOR']           || 'm1.small'
+  tags          = ENV['TAGS']             || "Name=RPC_#{Time.now.strftime('%Y%m%d%H%M')}"
   identity_file = ENV['IDENTITY_FILE']
   ssh_key       = ENV['SSH_KEY']
 
-  command  = "knife ec2 server create --run-list 'role[remote_pair]' "
+  command  = "knife ec2 server create --run-list 'role[remote_pair]' --yes "
   command += "--image #{image_id} "
   command += "--flavor #{flavor} "
+  command += "--tags #{tags} "
   command += "--ssh-key #{ssh_key} " if ssh_key
   command += "--identity-file #{identity_file} " if identity_file
   command += "--ssh-user #{ssh_user}" if ssh_user
