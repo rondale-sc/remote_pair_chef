@@ -6,19 +6,29 @@ class Ec2Server
                 :run_list
 
   def self.running_server_reload_commands
-    running_servers.each{|server| new.reload_command(server['Public IP'])}
+    running_servers.map{|server| new.reload_command(server.dns_name)}
   end
 
   def self.running_servers
-    field_names, servers = `knife ec2 server list`.split("\n").map{|i| i.split(/\s+/)}
-
-    servers.collect {|server|
-      next unless server.last == 'running'
-      next unless server[1] =~ /RPC_/
-
-      field_names.zip(server)
-    }.compact
+    server_list.select {|server|
+      server.state == 'running' && server.tags['Name'] =~ /RPC_/
+    }
   end
+
+  def self.server_list
+    require 'dotenv'
+    require 'fog'
+    Dotenv.load
+
+    connection = Fog::Compute.new({
+      :provider                 => 'AWS',
+      :aws_access_key_id        => ENV['AWS_ACCESS_KEY_ID'],
+      :aws_secret_access_key    => ENV['AWS_SECRET_ACCESS_KEY']
+    })
+
+    connection.servers
+  end
+  private_class_method :server_list
 
   def initialize(opts = nil)
     opts ||= {}
