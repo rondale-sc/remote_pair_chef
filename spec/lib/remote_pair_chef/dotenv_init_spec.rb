@@ -61,4 +61,12 @@ describe DotenvInit do
       expect(File.read("#{tmp_dir}/.env")).to eq(File.read('spec/fixtures/dotenv_init_write_file.txt'))
     end
   end
+
+  context ".build_dotenv" do
+    it "runs the methods necessary to create .env" do
+      DotenvInit.any_instance.should_receive(:interrogate)
+      DotenvInit.any_instance.should_receive(:write_file)
+      DotenvInit.build_dotenv
+    end
+  end
 end

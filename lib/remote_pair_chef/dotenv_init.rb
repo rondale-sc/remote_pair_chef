@@ -3,6 +3,12 @@ require 'highline'
 class DotenvInit
   attr_accessor :captures
 
+  def self.build_dotenv(path=nil)
+    di = self.new
+    di.interrogate
+    di.write_file(path)
+  end
+
   def initialize(opts={})
     @highline = opts.fetch(:highline) { HighLine.new($stdin, $stdout) }
     @path     = opts.fetch(:write_file_path) { ".env" }
