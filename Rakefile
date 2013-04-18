@@ -36,6 +36,25 @@ task :bootstrap_ec2 do
   sh command
 end
 
+desc "Re-run chef on existing EC2 instance(s)"
+task :reload => [:dotenv] do
+  ssh_user      = ENV['SSH_USER']         || 'ubuntu'
+  identity_file = ENV['IDENTITY_FILE']
+
+  servers = `knife ec2 server list`.split("\n").map{|i| i.split(/\s+/)}
+
+  servers.each do |server|
+    next unless server[1] =~ /RPC_/
+    next unless server.last == 'running'
+
+    command =  "knife solo cook #{ssh_user}@#{server[2]} --run-list 'role[remote_pair]' "
+    command += "--identity-file #{identity_file}" if identity_file
+
+    sh(command)
+  end
+
+end
+
 desc "Fires up and EC2 and creates :host and :pair users"
 task :start => [:dotenv, :clobber, :setup_github_users, :bootstrap_ec2]
 
