@@ -4,4 +4,4 @@
 #
 
 include_recipe "remote_pair_chef::users"
-include_recipe "remote_pair_chef::shared_tmux"
+include_recipe "remote_pair_chef::wemux"
