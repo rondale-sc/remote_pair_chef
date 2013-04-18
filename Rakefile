@@ -2,8 +2,8 @@ require 'rake'
 require 'rake/clean'
 require 'dotenv/tasks'
 
-require_relative 'lib/remote_pair_chef/create_user_data_bags'
-require_relative 'lib/remote_pair_chef/ami_finder'
+
+puts  Dir.glob("lib/remote_pair_chef/*.rb") {|f| require_relative f }
 
 # Remove user databags at the beginning of next session.
 # This ensures that users are never persisted to the next
@@ -16,6 +16,13 @@ task :setup_github_users do
   puts "Creating users #{users.join(',')}" if users.compact.length > 0
 
   CreateUserDataBags.new(users: users).create_users
+end
+
+desc "Setup dotenv through a prompt" 
+task :dotenv_init do
+  di = DotenvInit.new
+  di.interrogate
+  di.write_file 
 end
 
 desc "Bootstrap EC2 instance"
