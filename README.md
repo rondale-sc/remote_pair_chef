@@ -72,11 +72,13 @@ And there you have it a brand new (completely disposable) pairing instance.
 
 Any of these variables can be set in your `.env` file or directly on the command line:
 
+```
 * IMAGE_ID - DEFAULT: Most recent ubuntu 12.04 release via a script that parses canonical's list.
 * FLAVOR   - DEFAULT: 'm1.small'
 * TAGS     - DEFAULT: "Name=RPC\_#{Time.now.strftime('%Y%m%d%H%M')}"
 * RUN_LIST - DEFAULT: "role[remote_pair"  (More to follow soon) 
 * SSH_USER - DEFAULT: "ubuntu"
+```
 
 ### chef-users (an explanation) 
 
@@ -90,3 +92,19 @@ It creates the host and pair user based off of their github id's which you pass 
 
 We also create a `pairing` user which we'll use to connect the two users over TMUX.  We create this third user in order to ensure that the user that owns the TMUX session doesn't have sudo.
 
+
+# Contributions and what is on the horizon
+
+1. Make into a gem.
+2. Allow the deletion of users on existing instances. To enable the reuse of an instance between sessions with different users.
+3. Give user a fine control of running instances (underway).  Specifically ways to find and terminate sessions upon completion.
+4. Spit out the ssh command to log into the box at the conclusion of the bootstrap 
+5. Your <IDEA> here.
+
+Help is always welcome, and any interest is greatly appreciated.  That said, we are actively taking pull requests and will work with you to get them pushed through.  So just:
+
+1. Fork it
+2. Create your feature branch (git checkout -b my-new-feature)
+3. Commit your changes (git commit -am 'Added some feature')
+4. Push to the branch (git push origin my-new-feature)
+5. Create new Pull Request
