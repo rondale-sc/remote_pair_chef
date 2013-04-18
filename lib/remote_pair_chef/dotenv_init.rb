@@ -4,6 +4,7 @@ class DotenvInit
   attr_accessor :captures
 
   def self.build_dotenv(path=nil)
+    path ||= @path
     di = self.new
     di.interrogate
     di.write_file(path)
@@ -22,7 +23,8 @@ class DotenvInit
     self.captures[:ssh_key]               = get_ssh_key
   end
 
-  def write_file(path=path)
+  def write_file(path=nil)
+    path ||= @path
     File.open(path, "w") do |f|
       self.captures.each do |capture_name, value|
         f.puts "#{capture_name.to_s.upcase}=#{value}"
@@ -32,14 +34,14 @@ class DotenvInit
 
   private
 
-  attr_accessor :input, :output, :highline, :path
+  attr_accessor :input, :output, :highline
 
   def get_ssh_key
-    ask_silently("SSH_KEY")
+    highline.ask("Please enter your SSH_KEY: ")
   end
 
   def get_identity_file
-    ask_silently("IDENTITY_FILE")
+    highline.ask("Please enter your IDENTITY_FILE: ")
   end
 
   def get_aws_secret_access_key
