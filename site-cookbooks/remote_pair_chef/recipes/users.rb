@@ -16,4 +16,3 @@ users.each do |user_id|
     ssh_keys  user["ssh_keys"]
   end
 end
-
