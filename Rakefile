@@ -20,9 +20,7 @@ end
 
 desc "Setup dotenv through a prompt" 
 task :dotenv_init do
-  di = DotenvInit.new
-  di.interrogate
-  di.write_file 
+  DotenvInit.build_dotenv
 end
 
 desc "Bootstrap EC2 instance"
