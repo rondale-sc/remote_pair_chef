@@ -48,6 +48,11 @@ task :running_servers do
   end
 end
 
+desc "Stop all running servers"
+task :stop => :dotenv do
+  Ec2Server.terminate_servers!
+end
+
 desc "Fires up and EC2 and creates :host and :pair users"
 task :start => [:dotenv, :clobber, :setup_github_users, :bootstrap_ec2, :running_servers]
 

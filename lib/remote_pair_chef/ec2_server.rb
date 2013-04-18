@@ -5,6 +5,10 @@ class Ec2Server
                 :tags, :identity_file, :ssh_key,
                 :run_list
 
+  def self.terminate_servers!
+    running_servers.map{|server| server.destroy }
+  end
+
   def self.running_server_reload_commands
     running_servers.map{|server| new.reload_command(server.dns_name)}
   end
