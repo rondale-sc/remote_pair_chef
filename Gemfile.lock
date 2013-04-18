@@ -107,6 +107,7 @@ PLATFORMS
 DEPENDENCIES
   chef (~> 11.4.0)
   dotenv (~> 0.7.0)
+  fog (~> 1.10.0)
   highline (~> 1.6.18)
   knife-ec2 (~> 0.6.4)
   knife-solo (~> 0.3.0.pre3)
