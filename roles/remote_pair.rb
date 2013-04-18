@@ -6,6 +6,6 @@ run_list(
   "recipe[rvm::system]",
   "recipe[tmux::default]",
   "recipe[sqlite::default]",
-  "recipe[remote_pair_chef::users]"
+  "recipe[remote_pair_chef::default]"
 )
 
