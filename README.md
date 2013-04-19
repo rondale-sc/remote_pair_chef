@@ -49,7 +49,7 @@ Right now the box will include:
 * Git
 * RVM (installed system-wide)
 * sqlite
-* chef-users (I'll explain in a minute)
+* chef-users (See [User Management](https://github.com/rondale-sc/remote_pair_chef/wiki/User-Management))
 * Tmux
 
 ```sh
@@ -87,19 +87,6 @@ The stop task will shutdown any servers started with RPC.
 ```sh
 rake stop
 ```
-
-### chef-users (an explanation) 
-
-Chef-Users is way for you to specify how users are created.  The first job `start` has is to create json files that contain information about the host and pair users.  
-
-It creates the host and pair user based off of their github id's which you pass in.  This handles all the tedious user management stuff.  It does the following for each user specified:
-
-* uses `adduser` to build the user
-* builds their `.ssh` file and changes ownership to that user
-* adds all of their public SSH keys to the `~/.ssh/authorized_keys` file (via GitHub's API)
-
-We also create a `pairing` user which we'll use to connect the two users over TMUX.  We create this third user in order to ensure that the user that owns the TMUX session doesn't have sudo.
-
 
 # Contributions and what is on the horizon
 
