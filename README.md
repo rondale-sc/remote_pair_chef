@@ -80,6 +80,14 @@ Any of these variables can be set in your `.env` file or directly on the command
 * SSH_USER - DEFAULT: "ubuntu"
 ```
 
+### The Stop Task
+
+The stop task will shutdown any servers started with RPC.
+
+```sh
+rake stop
+```
+
 ### chef-users (an explanation) 
 
 Chef-Users is way for you to specify how users are created.  The first job `start` has is to create json files that contain information about the host and pair users.  
