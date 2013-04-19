@@ -2,7 +2,7 @@
 ## Recipe   :: wemux
 #
 
-include_recipe "tmux"
+include_recipe "tmux::default"
 
 git "/usr/local/wemux" do
   repository 'git://github.com/zolrath/wemux.git'
