@@ -3,7 +3,7 @@ require_relative 'ami_finder'
 class Ec2Server
   attr_accessor :ssh_user, :image_id, :flavor,
                 :tags, :identity_file, :ssh_key,
-                :run_list
+                :run_list, :region
 
   def self.terminate_servers!
     running_servers.map{|server| server.destroy }
@@ -43,6 +43,7 @@ class Ec2Server
     self.flavor        = opts[:flavor]        || env['FLAVOR']        || 'm1.small'
     self.tags          = opts[:tags]          || env['TAGS']          || "Name=RPC_#{Time.now.strftime('%Y%m%d%H%M')}"
     self.run_list      = opts[:run_list]      || env['RUN_LIST']      || "role[remote_pair]"
+    self.region        = opts[:region]        || env['REGION']        || "us-east-1"
     self.identity_file = opts[:identity_file] || env['IDENTITY_FILE']
     self.ssh_key       = opts[:ssh_key]       || env['SSH_KEY']
   end
@@ -55,7 +56,8 @@ class Ec2Server
     command += "--tags #{tags} "
     command += "--ssh-key #{ssh_key} " if ssh_key
     command += "--identity-file #{identity_file} " if identity_file
-    command += "--ssh-user #{ssh_user}" if ssh_user
+    command += "--ssh-user #{ssh_user} " if ssh_user
+    command += "--region #{region}"
 
     command
   end

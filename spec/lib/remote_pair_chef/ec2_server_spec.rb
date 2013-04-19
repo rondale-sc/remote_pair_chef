@@ -21,6 +21,7 @@ describe Ec2Server do
       it { expect(server.flavor).to   eql('m1.small')         }
       it { expect(server.tags).to     eql(default_tags)       }
       it { expect(server.run_list).to eql('role[remote_pair]')}
+      it { expect(server.region).to eql("us-east-1") }
     end
 
     context "allows passing values" do
@@ -34,6 +35,7 @@ describe Ec2Server do
       it { expect(server.run_list).to      eql('test_run_list')      }
       it { expect(server.identity_file).to eql('test_identity_file') }
       it { expect(server.ssh_key).to       eql('test_ssh_key')       }
+      it { expect(server.region).to        eql("test_region") }
     end
 
     context "allows using values from ENV" do
@@ -47,12 +49,13 @@ describe Ec2Server do
       it { expect(server.run_list).to      eql('test_RUN_LIST')      }
       it { expect(server.identity_file).to eql('test_IDENTITY_FILE') }
       it { expect(server.ssh_key).to       eql('test_SSH_KEY') }
+      it { expect(server.region).to        eql('test_REGION') }
     end
   end
 
   context "#bootstrap_command" do
     it "returns the knife bootstrap command to be run" do
-      expect(server.bootstrap_command).to eql("knife ec2 server create --run-list 'role[remote_pair]' --image ami12345 --flavor m1.small --tags #{default_tags} --ssh-user ubuntu")
+      expect(server.bootstrap_command).to eql("knife ec2 server create --run-list 'role[remote_pair]' --image ami12345 --flavor m1.small --tags #{default_tags} --ssh-user ubuntu --region us-east-1")
     end
   end
 
