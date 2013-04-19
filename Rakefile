@@ -26,6 +26,8 @@ end
 desc "Bootstrap EC2 instance"
 task :bootstrap_ec2 do
   sh Ec2Server.new.bootstrap_command
+
+  Rake::Task[:running_servers].invoke
 end
 
 desc "Re-run chef on existing EC2 instance(s)"
@@ -33,8 +35,19 @@ task :reload => [:dotenv] do
   Ec2Server.running_server_reload_commands.each do |command|
     sh(command)
   end
+
+  Rake::Task[:running_servers].invoke
+end
+
+desc "Print running server dns names"
+task :running_servers do
+  puts "\n\n\n"
+
+  Ec2Server.running_servers.each do |server|
+    puts "Server: #{server.tags['Name']} (#{server.dns_name})"
+  end
 end
 
 desc "Fires up and EC2 and creates :host and :pair users"
-task :start => [:dotenv, :clobber, :setup_github_users, :bootstrap_ec2]
+task :start => [:dotenv, :clobber, :setup_github_users, :bootstrap_ec2, :running_servers]
 
