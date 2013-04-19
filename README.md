@@ -23,7 +23,7 @@ To run the main task you should setup a few environment variables. You can eithe
 
 * AWS_ACCESS_KEY_ID - See [Setting up AWS Access](https://github.com/rondale-sc/remote_pair_chef/wiki/AWS-Access)
 * AWS_SECRET_ACCESS_KEY - See [Setting up AWS Access](https://github.com/rondale-sc/remote_pair_chef/wiki/AWS-Access)
-* IDENTITY_FILE - Specify your ssh private key path here (Usually, `~/.ssh/id_rsa.pem`).
+* IDENTITY_FILE - Specify your ssh private key path here (Usually, `~/.ssh/id_rsa`).
 * SSH_KEY - Specify the name of your key-pair within AWS
 
 For convenience we've added a rake task to help you set this up.
