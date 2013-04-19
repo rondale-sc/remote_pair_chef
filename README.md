@@ -1,39 +1,36 @@
 # Remote Pair Chef
 
-This repo contains all the recipes for installing a brand spanking new dev box.  More information to follow as to what exactly that means.  For now, take a look if you want.
-
-These recipes are designed to be deployed to an instance (generally an AWS instance) running UBUNTU.
+This repo contains all the recipes for installing a brand spanking new dev box.  More information to follow as to what exactly that means.  For now, take a look if you want. These recipes are designed to be deployed to an instance (generally an AWS instance) running UBUNTU.
 
 # Installation and Usage
 
 
+#### \<TL;DR\>
+
+Some setup preliminary setup is required but the TLDR is you'll be able to type:
+
+```
+rake start RPC_HOST=rondale-sc RPC_PAIR=rwjblue
+```
+
+And when you ssh into the box that is created by the above command you'll automatically be in a shared TMUX (through wemux) connection with your pair.  SSH key authentication is taken care of based off of the github user id's passed into the start command.
+
+#### \</TL;DR\>
+
 ## Setting up your Environment
 
-To run the main task you should setup a few environment variables. You can either use `dotenv` or just manually load them into your environment.
+To run the main task you should setup a few environment variables. You can either use `dotenv` or just manually load them into your environment. Here is a short list of the variables that you will need:
 
-Here is a short list of the variables that you will need:
-
-* AWS_ACCESS_KEY_ID
-* AWS_SECRET_ACCESS_KEY
+* AWS_ACCESS_KEY_ID - See [Setting up AWS Access](https://github.com/rondale-sc/remote_pair_chef/wiki/AWS-Access)
+* AWS_SECRET_ACCESS_KEY - See [Setting up AWS Access](https://github.com/rondale-sc/remote_pair_chef/wiki/AWS-Access)
 * IDENTITY_FILE - Specify your ssh private key path here (Usually, `~/.ssh/id_rsa.pem`).
 * SSH_KEY - Specify the name of your key-pair within AWS
 
 For convenience we've added a rake task to help you set this up.
 
-run `rake dotenv_init`
-
 ![dotenv_init](http://i.imgur.com/V75DCqF.png)
 
 This will write a file at `.env` with these variables set inside.  RPC will then load these into your environment at run time.  If you don't feel comfortable writing your secrets to a file you can set these manually at runtime.  
-
-### AWS access key and secret access key
-
-These variables can be created easily via your EC2 console.  Once you are logged in you should drop the menu down in the top right corner and click `Security Credentials`
-
-![security_credentials_1](http://i.imgur.com/UNVJGxm.png)
-
-Once you've clicked that you should find the link to `Create a new Access Key`.  Once you've done that you can just paste them into the prompts when requested by `rake dotenv_init`.  Remember to never share these with anyone, and to cycle them regularly.
-
 
 ## Usage
 
@@ -72,13 +69,12 @@ And there you have it a brand new (completely disposable) pairing instance.
 
 Any of these variables can be set in your `.env` file or directly on the command line:
 
-```
-* IMAGE_ID - DEFAULT: Most recent ubuntu 12.04 release via a script that parses canonical's list.
-* FLAVOR   - DEFAULT: 'm1.small'
-* TAGS     - DEFAULT: "Name=RPC\_#{Time.now.strftime('%Y%m%d%H%M')}"
-* RUN_LIST - DEFAULT: "role[remote_pair"  (More to follow soon) 
-* SSH_USER - DEFAULT: "ubuntu"
-```
+
+* __IMAGE_ID__ - _default_ - Most recent ubuntu 12.04 release via a script that parses canonical's list.
+* __FLAVOR__   - _default_ - 'm1.small'
+* __TAGS__     - _default_ - "Name=RPC\_#{Time.now.strftime('%Y%m%d%H%M')}"
+* __RUN_LIST__ - _default_ - "role[remote_pair"  (More to follow soon) 
+* __SSH_USER__ - _default_ - "ubuntu"
 
 ### The Stop Task
 
