@@ -7,7 +7,7 @@ This repo contains all the recipes for installing a brand spanking new dev box. 
 
 #### \<TL;DR\>
 
-Some setup preliminary setup is required but the TLDR is you'll be able to type:
+Some preliminary setup is required but the TLDR is you'll be able to type:
 
 ```
 rake start RPC_HOST=rondale-sc RPC_PAIR=rwjblue
@@ -57,6 +57,7 @@ rake start RPC_HOST=<GITHUB USERNAME> RPC_PAIR=<GITHUB USERNAME>
 After that you'll be able to ssh into the box with the following command. 
 
 ```
+# AWS ip is printed at the end of start.
 ssh <RPC_HOST>@<AWS_ASSIGNED_IP_ADDRESS>
 
 # then connect with tmux
@@ -90,7 +91,7 @@ rake stop
 2. Allow the deletion of users on existing instances. To enable the reuse of an instance between sessions with different users.
 3. Give user a fine control of running instances (underway).  Specifically ways to find and terminate sessions upon completion.
 4. Spit out the ssh command to log into the box at the conclusion of the bootstrap 
-5. Your <IDEA> here.
+5. Your \<IDEA\> here.
 
 Help is always welcome, and any interest is greatly appreciated.  That said, we are actively taking pull requests and will work with you to get them pushed through.  So just:
 
