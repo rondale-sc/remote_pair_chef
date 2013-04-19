@@ -28,7 +28,7 @@ To run the main task you should setup a few environment variables. You can eithe
 
 For convenience we've added a rake task to help you set this up.
 
-![dotenv_init](http://i.imgur.com/V75DCqF.png)
+![dotenv_init](http://i.imgur.com/TqOYmKK.png)
 
 This will write a file at `.env` with these variables set inside.  RPC will then load these into your environment at run time.  If you don't feel comfortable writing your secrets to a file you can set these manually at runtime.  
 
