@@ -11,6 +11,7 @@ default_command = node["remote_pair_chef"]["default_ssh_command"]
 
 users.each do |user_id|
   user = data_bag_item("users", user_id)
+  home_dir = "/home/#{user['username']}/"
 
   user_account user["username"] do
     comment   user["comment"]
@@ -18,18 +19,19 @@ users.each do |user_id|
     ssh_keys  user["ssh_keys"].map{|key| default_command + key}
   end
 
-  git "/home/#{username}/..." do
+  git home_dir do
     repository 'git://github.com/ingydotnet/....git'
     reference 'master'
     action :sync
   end
 
-  remote_file "/home/#{username}/.../conf" do
-    source 'https://gist.github.com/anonymous/bcc3a4b0a1ee9eec5afd/raw/68b4300ce62cadc4c4b41c85dcb10586c11eab0e/conf'
+  remote_file "#{home_dir}.../conf" do
+    source 'https://gist.github.com/rondale-sc/23fa89650bc89b61294d/raw/2b427d3346100b59cf8f9a5d2e9c8288d80f572c/conf'
   end
 
   execute 'sync dotfiles' do
-    user username
-    comand '... supi'
+    user user['username']
+    cwd home_dir
+    command "#{home_dir}.../bin/... supi"
   end
 end
