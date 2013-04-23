@@ -5,6 +5,5 @@ run_list(
   "recipe[git::default]",
   "recipe[sqlite::default]",
   "recipe[remote_pair_chef::default]"
-  "recipe[dotdotdot]",
 )
 
