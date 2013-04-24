@@ -8,6 +8,7 @@ users.each do |user_id|
     repository 'git://github.com/ingydotnet/....git'
     reference 'master'
     action :sync
+    user user["username"]
   end
 
   template "#{home_dir}/.../conf" do
