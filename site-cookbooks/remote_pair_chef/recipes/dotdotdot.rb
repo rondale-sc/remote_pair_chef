@@ -19,6 +19,6 @@ users.each do |user_id|
   execute 'sync dotfiles' do
     user user['username']
     cwd home_dir
-    command "#{home_dir}/.../bin/... super_update_install"
+    command "/bin/bash -l -c '#{home_dir}/.../bin/... upgrade'"
   end
 end
