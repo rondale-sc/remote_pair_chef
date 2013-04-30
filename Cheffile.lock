@@ -21,6 +21,13 @@ GIT
       chef_gem (>= 0.0.0)
 
 GIT
+  remote: https://github.com/fnichol/chef-user
+  ref: master
+  sha: 1b52f8d41c0a320d29fa5e695393bef583e87ca8
+  specs:
+    user (0.3.1)
+
+GIT
   remote: https://github.com/opscode-cookbooks/git
   ref: master
   sha: 61e2e124e61893f908541e2af321595b803eec3e
@@ -58,5 +65,6 @@ DEPENDENCIES
   rvm (>= 0)
   sqlite (>= 0)
   tmux (>= 0)
+  user (>= 0)
   vim (>= 0)
 

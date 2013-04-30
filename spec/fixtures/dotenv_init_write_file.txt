@@ -1,0 +1,4 @@
+AWS_ACCESS_KEY_ID=test_aws_access_key_id
+AWS_SECRET_ACCESS_KEY=test_aws_secret_access_key
+IDENTITY_FILE=test_identity_file
+SSH_KEY=test_ssh_key
